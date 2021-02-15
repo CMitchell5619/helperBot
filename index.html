@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+    <title>helperBot</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -38,30 +38,27 @@
             </div>
             <div class="col-6 p-2">
                 <img class='img-fluid' onclick="helpPeople()" src="//placehold.it/200x200" alt="">
+                <h4>People helped per click:</h4>
+                <h5 id=helpedPerView></h5>
             </div>
         </div>
         <div class="row">
             <div class="col-6">
                 <h2>Purchase:</h2>
-                <button class="btn btn-primary" onclick="purchaseSpeedServos()">Speed Servos</button>
-                <button class="btn btn-primary" onclick="purchaseDangerDetected()">Danger Identifiers</button>
+                <button class="btn btn-primary" onclick="purchaseSpeedServos()">speedServos (100en)</button>
+                <button class="btn btn-primary" onclick="purchaseDangerDetected()">dangerIdentifiers (1000en)</button>
                 <h2>Craft:</h2>
-                <button class="btn btn-primary" onclick="purchaseMinerBots()">minerBots</button>
-                <button class="btn btn-primary" onclick="purchaseDangerDetected()">Danger Identifiers</button>
+                <button class="btn btn-primary" onclick="purchaseElectroBots()">electroBots (25en)</button>
+                <button class="btn btn-primary" onclick="purchaseTinyHelpers()">5 tinyHelpers (1500en)</button>
 
             </div>
             <div class="col-6">
-                <h4>Resources:</h4>
+                <h4>Reserves:</h4>
                 <div class="row">
                     <div class="col-6">
                         <div class="row">
                             <div class="col-12">
                                 <h5>Energy:</h5>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <h5>Metal:</h5>
                             </div>
                         </div>
                     </div>
@@ -112,15 +109,8 @@
                             <div class="col-12">
                                 <h5>+Energy p/sec:</h5>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-12">
-                                <h5>-Energy p/sec:</h5>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <h5>Energy p/sec:</h5>
+                                <h5>tinyBots Helping:</h5>
                             </div>
                         </div>
                     </div>
@@ -132,12 +122,7 @@
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <h5 id=energyUsedView></h5>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <h5 id=totalEnergyView></h5>
+                                <h5 id=tinyBotsView></h5>
                             </div>
                         </div>
                     </div>
