@@ -1,8 +1,10 @@
 let peopleToHelp = 7845000000
 let peopleHelped = 0
 let energy = 100
-let totalMultiplier = 1
+let metal = 100
+let totalMultiplier = 0
 let energyMultiplier = 0
+let clickHelp = 1
 
 let helpUpgrades = {
     
@@ -47,7 +49,8 @@ function purchaseSpeedServos() {
     if (energy>=helpUpgrades.clickUpgrades.helperBotSpeedServos.price) {
         ++helpUpgrades.clickUpgrades.helperBotSpeedServos.quantity
         energy -= helpUpgrades.clickUpgrades.helperBotSpeedServos.price
-        totalMultiplier += helpUpgrades.clickUpgrades.helperBotSpeedServos.multipler
+        clickHelp += helpUpgrades.clickUpgrades.helperBotSpeedServos.multipler
+        helpUpgrades.clickUpgrades.helperBotSpeedServos.price += 25
     }
     console.log(totalMultiplier)
     update()
@@ -56,8 +59,9 @@ function purchaseSpeedServos() {
 function purchaseDangerDetected() {
     if (energy>=helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.price) {
         ++helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.quantity
-        energy -= 10
-        totalMultiplier += helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.multipler
+        energy -= helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.price
+        clickHelp += helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.multipler
+        helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.price += 100
     }
     console.log(totalMultiplier)
     update()
@@ -102,8 +106,8 @@ function myFunction() {
 function helpPeople() {
     if (energy>0) {
         
-    peopleToHelp -= totalMultiplier
-    peopleHelped += totalMultiplier
+    peopleToHelp -= clickHelp
+    peopleHelped += clickHelp
     --energy
     update()
     helpCheck(peopleToHelp)
@@ -124,7 +128,9 @@ function update() {
     document.getElementById("dangerDetectorsView").innerHTML = `${helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.quantity}`;
     document.getElementById("energyProducedView").innerHTML = `${energyMultiplier}`;
     document.getElementById("tinyBotsView").innerHTML = `${helpUpgrades.autoUpgrades.tinyHelpers.quantity}`;
-    document.getElementById("helpedPerView").innerHTML = `${totalMultiplier}`;
+    document.getElementById("helpedPerView").innerHTML = `${clickHelp}`;
+    document.getElementById("servoPriceView").innerHTML = `Price: ${helpUpgrades.clickUpgrades.helperBotSpeedServos.price} Modifier: ${helpUpgrades.clickUpgrades.helperBotSpeedServos.multipler}`;
+    document.getElementById("dangerDetectorPriceView").innerHTML = `Price: ${helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.price} Modifier: ${helpUpgrades.clickUpgrades.helperBotDangerIdentifiers.multipler}`;
     
 }
 
